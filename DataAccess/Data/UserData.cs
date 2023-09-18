@@ -12,6 +12,7 @@ public class UserData : IUserData
         _dataAccess = dataAccess;
     }
 
+    // dynamic is the type of parameters passed to the stored procedure
     public Task<IEnumerable<UserModel>> GetUsers() => _dataAccess.LoadData<UserModel, dynamic>(storedProcedure: "dbo.spUser_GetAll", new { });
 
     public async Task<UserModel?> GetUser(int id)

@@ -13,6 +13,7 @@ public class SqlDataAccess : ISqlDataAccess
         _config = config;
     }
 
+    // second parameter (U), is the parameter type passed to the stored procedure
     public async Task<IEnumerable<T>> LoadData<T, U>(string storedProcedure, U parameters, string connectionId = "Default")
     {
         using IDbConnection connection = new SqlConnection(_config.GetConnectionString(connectionId));
